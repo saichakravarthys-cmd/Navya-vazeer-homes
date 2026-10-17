@@ -28,11 +28,9 @@
         .card h4 { color: #1e293b; margin-bottom: 0.25rem; }
         .card p { font-size: 0.85rem; color: #64748b; }
         
-        /* Notice Board Styles */
         .notice-item { background: #fef3c7; border-left: 4px solid #d97706; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; }
         .notice-date { font-size: 0.8rem; color: #b45309; font-weight: bold; }
         
-        /* Form Styles */
         .form-group { margin-bottom: 1.2rem; }
         label { display: block; margin-bottom: 0.4rem; font-weight: 500; font-size: 0.9rem; }
         input, select, textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; }
@@ -115,18 +113,19 @@
 
         <section id="grievance">
             <h2>Submit a Maintenance Request / Grievance</h2>
-            <form id="complaintForm" onsubmit="handleFormSubmit(event)">
+            <!-- Update the action URL with your unique Formspree endpoint key once registered -->
+            <form action="https://formspree.io" method="POST">
                 <div class="form-group">
                     <label for="residentName">Resident Name</label>
-                    <input type="text" id="residentName" required placeholder="Enter your full name">
+                    <input type="text" name="name" id="residentName" required placeholder="Enter your full name">
                 </div>
                 <div class="form-group">
                     <label for="flatNumber">Flat / Plot Number</label>
-                    <input type="text" id="flatNumber" required placeholder="e.g., Flat 501 / Plot 1352">
+                    <input type="text" name="flat" id="flatNumber" required placeholder="e.g., Flat 501 / Plot 1352">
                 </div>
                 <div class="form-group">
                     <label for="category">Issue Category</label>
-                    <select id="category">
+                    <select name="category" id="category">
                         <option value="water">Drinking Water / Water Resources</option>
                         <option value="civic">Common Area Maintenance (CAM)</option>
                         <option value="housing">Housing / Electrical Infrastructure</option>
@@ -135,7 +134,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Details of Request</label>
-                    <textarea id="description" required placeholder="Describe the issue or inquiry in detail..."></textarea>
+                    <textarea name="message" id="description" required placeholder="Describe the issue or inquiry in detail..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-success">Submit Request to Committee</button>
             </form>
@@ -146,7 +145,8 @@
         <section id="compliance">
             <h3>Documents & Compliance</h3>
             <ul class="compliance-list">
-                <li><span>Registration Certificate</span> <a href="#" class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; width: auto;">View PDF</a></li>
+                <!-- If you saved the file as SOCIETY.txt, change the href target here to "SOCIETY.txt" instead -->
+                <li><span>Darpan Certificate</span> <a href="SOCIETY.pdf" download class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; width: auto;">Download Certificate</a></li>
                 <li><span>Society Bye-Laws</span> <a href="#" class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; width: auto;">Download</a></li>
             </ul>
         </section>
@@ -168,12 +168,5 @@
     <p>&copy; 2026 Navya Vazeer Homes Welfare Association. All Rights Reserved.</p>
 </footer>
 
-<script>
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        const name = document.getElementById('residentName').value;
-        alert("Thank you " + name + "! Your request has been simulated successfully. To make this operational, we can link this form to your real email inbox.");
-    }
-</script>
 </body>
 </html>
