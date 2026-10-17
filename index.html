@@ -8,29 +8,44 @@
         :root {
             --primary: #1e3a8a;
             --secondary: #0284c7;
+            --success: #16a34a;
             --text: #334155;
             --bg: #f8fafc;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem 5%; text-align: center; }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2.5rem 5%; text-align: center; }
         header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; text-transform: uppercase; }
         header p { font-size: 1rem; opacity: 0.9; }
-        nav { background: #0f172a; padding: 0.8rem 5%; display: flex; justify-content: center; gap: 2rem; }
+        nav { background: #0f172a; padding: 0.8rem 5%; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
         nav a { color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
         nav a:hover { color: #38bdf8; }
         .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
         section { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); margin-bottom: 2rem; }
-        h2 { color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1.2rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        h2, h3 { color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1.2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
         .card { background: #f1f5f9; padding: 1rem; border-radius: 6px; border-left: 4px solid var(--secondary); }
         .card h4 { color: #1e293b; margin-bottom: 0.25rem; }
         .card p { font-size: 0.85rem; color: #64748b; }
+        
+        /* Notice Board Styles */
+        .notice-item { background: #fef3c7; border-left: 4px solid #d97706; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; }
+        .notice-date { font-size: 0.8rem; color: #b45309; font-weight: bold; }
+        
+        /* Form Styles */
+        .form-group { margin-bottom: 1.2rem; }
+        label { display: block; margin-bottom: 0.4rem; font-weight: 500; font-size: 0.9rem; }
+        input, select, textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; }
+        textarea { resize: vertical; height: 100px; }
+        
         .sidebar { display: flex; flex-direction: column; gap: 1rem; }
         .compliance-list { list-style: none; }
         .compliance-list li { padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
-        .btn { background: var(--primary); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer; text-decoration: none; font-size: 0.9rem; text-align: center; }
+        .btn { background: var(--primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; text-decoration: none; font-size: 0.95rem; text-align: center; width: 100%; display: inline-block; font-weight: 500; }
         .btn:hover { background: #172554; }
+        .btn-success { background: var(--success); }
+        .btn-success:hover { background: #15803d; }
+        
         footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 1.5rem; font-size: 0.85rem; margin-top: 4rem; }
         @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
     </style>
@@ -44,22 +59,36 @@
 
 <nav>
     <a href="#about">About Us</a>
+    <a href="#notices">Notice Board</a>
     <a href="#committee">Governing Body</a>
     <a href="#sectors">Focus Areas</a>
-    <a href="#compliance">Compliance</a>
+    <a href="#grievance">Resident Portal</a>
     <a href="#contact">Contact</a>
 </nav>
 
 <div class="container">
     <main>
         <section id="about">
-            <h2>Welcome & About Our Association</h2>
-            <p>Welcome to the official online portal of the <strong>Navya Vazeer Homes Welfare Association</strong>. Established to serve our community, promote welfare, and address core local development initiatives under local structural frameworks, we are committed to building a vibrant, collective community framework.</p>
+            <h2>About Our Association</h2>
+            <p>Welcome to the official digital portal of the <strong>Navya Vazeer Homes Welfare Association</strong>. Located at Uppal Bhagayath, our association ensures the smooth management of civic infrastructure, community welfare, housing layout enhancements, and internal resident amenities under state regulatory guidelines.</p>
+        </section>
+
+        <section id="notices">
+            <h2>Community Notice Board</h2>
+            <div class="notice-item">
+                <div class="notice-date">October 17, 2026</div>
+                <h4>Quarterly Executive Committee Assembly</h4>
+                <p>The executive board members will assemble next week to deliberate on community infrastructure maintenance budgets and drinking water optimization programs.</p>
+            </div>
+            <div class="notice-item" style="background-color: #f0fdf4; border-left-color: var(--success);">
+                <div class="notice-date">October 10, 2026</div>
+                <h4>NGO Darpan Status Activated</h4>
+                <p>Our association is formally onboarded and active on the NITI Aayog NGO Darpan portal under ID: TS/2026/1233927.</p>
+            </div>
         </section>
 
         <section id="committee">
             <h2>Governing Executive Committee</h2>
-            <p>Our dedicated team managing the executive compliance, governance, and daily operations of the association:</p>
             <div class="grid">
                 <div class="card">
                     <h4>Sevala Tulasi Prasad Rao</h4>
@@ -84,43 +113,53 @@
             </div>
         </section>
 
-        <section id="sectors">
-            <h2>Primary Focus Sectors</h2>
-            <p>Our operational framework focuses broadly on structural, social, and civic enrichment across the community:</p>
-            <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
-                <ul>
-                    <li>Drinking Water Management</li>
-                    <li>Health & Family Welfare Support</li>
-                    <li>Community Housing & Infrastructure</li>
-                </ul>
-                <ul>
-                    <li>Civic Issues Oversight</li>
-                    <li>Education & Literacy Programs</li>
-                    <li>Water Resource Conservation</li>
-                </ul>
-            </div>
+        <section id="grievance">
+            <h2>Submit a Maintenance Request / Grievance</h2>
+            <form id="complaintForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="residentName">Resident Name</label>
+                    <input type="text" id="residentName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="flatNumber">Flat / Plot Number</label>
+                    <input type="text" id="flatNumber" required placeholder="e.g., Flat 501 / Plot 1352">
+                </div>
+                <div class="form-group">
+                    <label for="category">Issue Category</label>
+                    <select id="category">
+                        <option value="water">Drinking Water / Water Resources</option>
+                        <option value="civic">Common Area Maintenance (CAM)</option>
+                        <option value="housing">Housing / Electrical Infrastructure</option>
+                        <option value="other">General Query</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Details of Request</label>
+                    <textarea id="description" required placeholder="Describe the issue or inquiry in detail..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit Request to Committee</button>
+            </form>
         </section>
     </main>
 
     <aside class="sidebar">
         <section id="compliance">
-            <h3>Compliance & Records</h3>
+            <h3>Documents & Compliance</h3>
             <ul class="compliance-list">
-                <li><span>Society Bye-Laws</span> <a href="#" class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;">View</a></li>
-                <li><span>AGM Minutes (2026)</span> <a href="#" class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;">Download</a></li>
-                <li><span>Audited Balance Sheet</span> <a href="#" class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem;">Request</a></li>
+                <li><span>Registration Certificate</span> <a href="#" class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; width: auto;">View PDF</a></li>
+                <li><span>Society Bye-Laws</span> <a href="#" class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; width: auto;">Download</a></li>
             </ul>
         </section>
 
         <section id="contact">
-            <h3>Registered Office</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+            <h3>Registered Office Address</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 1.2rem;">
                 <strong>Plot No. 1352, Navya Vazeer Homes</strong>,<br>
                 Near Kala Bhairava Temple,<br>
                 Uppal Bhagayath, Uppal,<br>
                 Medchal Malkajgiri, Telangana - 500039
             </p>
-            <a href="mailto:tulasiprasadrao@gmail.com" class="btn" style="display: block;">Email Association</a>
+            <a href="mailto:tulasiprasadrao@gmail.com" class="btn">Email Management</a>
         </section>
     </aside>
 </div>
@@ -129,5 +168,12 @@
     <p>&copy; 2026 Navya Vazeer Homes Welfare Association. All Rights Reserved.</p>
 </footer>
 
+<script>
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        const name = document.getElementById('residentName').value;
+        alert("Thank you " + name + "! Your request has been simulated successfully. To make this operational, we can link this form to your real email inbox.");
+    }
+</script>
 </body>
 </html>
